@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { CalendarIcon, MapPinIcon } from 'lucide-react';
+import { CalendarIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
 
 const HeroSection = () => {
   const scrollToBooking = () => {
@@ -17,7 +17,7 @@ const HeroSection = () => {
         <div className="w-full h-full bg-gradient-to-br from-forest-900/80 to-earth-900/80 relative">
           {/* Placeholder for background image - in a real app, this would be an actual image */}
           <div className="absolute inset-0 bg-gradient-to-br from-forest-700 via-forest-600 to-earth-600 opacity-90"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         </div>
       </div>
 
