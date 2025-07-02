@@ -14,9 +14,17 @@ const HeroSection = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-forest-900/80 to-earth-900/80 relative">
-          {/* Placeholder for background image - in a real app, this would be an actual image */}
-          <div className="absolute inset-0 bg-gradient-to-br from-forest-700 via-forest-600 to-earth-600 opacity-90"></div>
+        <div className="w-full h-full relative">
+          {/* Main background image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/lovable-uploads/0ee31619-2ccd-4372-acb1-a2daebbfe160.png')`
+            }}
+          ></div>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
+          {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-20" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}></div>
