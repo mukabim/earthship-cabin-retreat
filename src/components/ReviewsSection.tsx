@@ -18,6 +18,26 @@ const ReviewsSection = () => {
 
   const reviews = [
     {
+      id: 101,
+      name: 'Kelvin M.',
+      rating: 5,
+      date: '2026',
+      comment: 'The service was wonderful from the owner, who is really nice, kind and polite — from booking the reservation to directions and coming to our aid. He went above and beyond to make sure we were comfortable and well taken care of! The two ladies who were hands-on from the moment we arrived were really wonderful. The rooms were well cleaned, and the sheets and bed were spotless.',
+      accommodation: 'Lodge Stay',
+      verified: true,
+      featured: true
+    },
+    {
+      id: 102,
+      name: 'Lillian',
+      rating: 5,
+      date: '2026',
+      comment: "We are already in love with the place! We were warmly received by the two ladies, Jesica and Shiro. We have eaten, we are very okay, and we are so glad we came here.",
+      accommodation: 'Lodge Stay',
+      verified: true,
+      featured: true
+    },
+    {
       id: 1,
       name: 'Sarah Johnson',
       rating: 5,
@@ -88,10 +108,11 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section id="reviews" className="py-20 bg-gradient-to-br from-earth-50 to-forest-50">
+    <section id="reviews" className="py-24 md:py-28 bg-gradient-to-br from-earth-50 to-forest-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-forest-900 mb-4">
+          <p className="section-kicker mb-3">Guest voices</p>
+          <h2 className="section-title mb-4">
             Guest Reviews
           </h2>
           <div className="flex items-center justify-center space-x-4 mb-4">
@@ -103,7 +124,7 @@ const ReviewsSection = () => {
               {reviews.length} Reviews
             </Badge>
           </div>
-          <p className="text-xl text-forest-700 max-w-2xl mx-auto">
+          <p className="text-lg text-forest-700 max-w-2xl mx-auto font-light">
             See what our guests are saying about their EarthShip experience
           </p>
         </div>
@@ -176,24 +197,46 @@ const ReviewsSection = () => {
         {/* All Reviews Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {reviews.map((review) => (
-            <Card key={review.id} className="card-earth hover:scale-105 transition-all duration-300">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <h4 className="font-semibold text-forest-900">{review.name}</h4>
-                    {review.verified && <Badge variant="outline" className="text-green-700 border-green-300 bg-green-50 text-xs">✓</Badge>}
+            <Card
+              key={review.id}
+              className={`card-earth relative overflow-hidden hover:-translate-y-1 transition-all duration-300 ${
+                review.featured ? 'border-2 border-earth-400 bg-gradient-to-br from-white to-earth-50' : ''
+              }`}
+            >
+              {review.featured && (
+                <span className="absolute top-2 right-4 text-7xl leading-none text-earth-200 font-serif select-none pointer-events-none">
+                  &ldquo;
+                </span>
+              )}
+              <CardHeader className="pb-3 relative">
+                <div className="flex items-center space-x-3">
+                  <div
+                    className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold text-white shrink-0 ${
+                      review.featured ? 'bg-gradient-earth' : 'bg-forest-600'
+                    }`}
+                  >
+                    {review.name.charAt(0)}
                   </div>
-                  <div className="flex">
-                    {renderStars(review.rating)}
+                  <div className="min-w-0">
+                    <div className="flex items-center space-x-2">
+                      <h4 className="font-semibold text-forest-900 truncate">{review.name}</h4>
+                      {review.verified && <Badge variant="outline" className="text-green-700 border-green-300 bg-green-50 text-xs">✓</Badge>}
+                    </div>
+                    <div className="flex">
+                      {renderStars(review.rating)}
+                    </div>
                   </div>
                 </div>
-                <div className="text-sm text-forest-600">
-                  {review.date} • {review.accommodation}
+                <div className="flex items-center gap-2 text-sm text-forest-600 pt-2">
+                  {review.featured && (
+                    <Badge className="bg-earth-500 text-white text-xs">Recent Guest</Badge>
+                  )}
+                  <span>{review.date} • {review.accommodation}</span>
                 </div>
               </CardHeader>
-              <CardContent>
-                <p className="text-forest-700 text-sm leading-relaxed">
-                  {review.comment}
+              <CardContent className="relative">
+                <p className={`text-forest-700 leading-relaxed ${review.featured ? 'text-base italic' : 'text-sm'}`}>
+                  {review.featured ? `"${review.comment}"` : review.comment}
                 </p>
               </CardContent>
             </Card>
